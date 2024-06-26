@@ -1,0 +1,28 @@
+{
+    "path": "/requests_unicorn", 
+    "httpMethod": "POST",
+    "headers": {
+        "Accept": "*/*",
+        "content-type": "application/json; charset=UTF-8",
+        "Authorization": "MY_JWT TOKEN ISSUED after signing in successfully"
+    },
+    "queryStringParameters": null,
+    "pathParameters": null,
+    "requestContext": {
+        "authorizer": {
+            "claims": {
+                "cognito:username": "the_username"
+            }
+        }
+    },
+    "body": "{\"PickupLocation\":{\"Latitude\":47.6174755835663,\"Longitude\":-122.28837066650185}}"
+}
+
+// PATH ==> The Endpoint of the API Gateway(resource path > e.g. POST > Going Lamda function!).
+//          Lambda Function communicates with it for REQUEST & RESPOND
+// queryStringParameters , pathParameters : null
+// ===> Because this prevents from the cases without Parameters.
+// reqeustContext > authorizer> claims > cognito's username 
+// ===> It is used to authentication at API Gateway.
+
+// body is used for configuring the variables to test REQUEST / RESPONSE
